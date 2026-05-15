@@ -3,6 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://d0f5188bjde4w" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/knight.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bskk5p80r1l64" path="res://scripts/player.gd" id="1_g2els"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(96, 224, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
 region = Rect2(0, 0, 32, 32)
@@ -91,6 +107,23 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_onrkg")
 }, {
 "duration": 1.0,
@@ -168,9 +201,8 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
-radius = 4.0
-height = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ni07"]
+size = Vector2(10, 15)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=569404467]
 z_index = 5
@@ -179,10 +211,11 @@ script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=599560761]
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"jump"
+animation = &"dead"
 autoplay = "idle"
-frame_progress = 0.8265425
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883069712]
-position = Vector2(0, 5)
-shape = SubResource("CapsuleShape2D_1jxqw")
+position = Vector2(-1, 4.5)
+shape = SubResource("RectangleShape2D_4ni07")
+
+[node name="DashTimer" type="Timer" parent="." unique_id=2101975879]
