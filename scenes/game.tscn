@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bq0xgodigx4mo" path="res://scenes/coin.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bc8rs8an6scnj" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cc2lkerlx1i8v" path="res://scenes/slime.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://df0b32luutqnj" path="res://scenes/boost_shroom.tscn" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("2_yqjtg")
@@ -372,7 +373,7 @@ zoom = Vector2(4, 4)
 limit_bottom = 62
 position_smoothing_enabled = true
 
-[node name="killzone" parent="." unique_id=653836470 instance=ExtResource("5_iywne")]
+[node name="killzone" parent="." unique_id=653836470 groups=["player"] instance=ExtResource("5_iywne")]
 position = Vector2(206, 98)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1286230484]
@@ -384,10 +385,10 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 position = Vector2(229, -67)
 
 [node name="coin2" parent="coins" unique_id=765903495 instance=ExtResource("4_lbhrr")]
-position = Vector2(263, -50)
+position = Vector2(264, -58)
 
 [node name="coin3" parent="coins" unique_id=1331849278 instance=ExtResource("4_lbhrr")]
-position = Vector2(143, -52)
+position = Vector2(150, -61)
 
 [node name="coin4" parent="coins" unique_id=1344248981 instance=ExtResource("4_lbhrr")]
 position = Vector2(66, 26)
@@ -395,10 +396,10 @@ position = Vector2(66, 26)
 [node name="platforms" type="Node" parent="." unique_id=25349944]
 
 [node name="AnimatableBody2D" parent="platforms" unique_id=336260572 instance=ExtResource("3_lnu2h")]
-position = Vector2(321, -32)
+position = Vector2(306, -37)
 
 [node name="AnimatableBody2D2" parent="platforms" unique_id=1802802645 instance=ExtResource("3_lnu2h")]
-position = Vector2(315, -59)
+position = Vector2(304, -75)
 
 [node name="AnimatableBody2D3" parent="platforms" unique_id=1740758338 instance=ExtResource("3_lnu2h")]
 position = Vector2(191, -105)
@@ -415,5 +416,8 @@ position = Vector2(-7, -92)
 
 [node name="slime3" parent="." unique_id=1914256047 instance=ExtResource("6_p57ef")]
 position = Vector2(-151, -28)
+
+[node name="boost_shroom" parent="." unique_id=329037474 instance=ExtResource("7_u5sy4")]
+position = Vector2(152, 25)
 
 [connection signal="body_entered" from="coins/coin3" to="CharacterBody2D" method="_on_coin_3_body_entered"]

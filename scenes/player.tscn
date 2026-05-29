@@ -204,7 +204,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ni07"]
 size = Vector2(10, 15)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=569404467]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=569404467 groups=["player"]]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_g2els")

@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -250.0
-const Dash_multi = 5.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -52,18 +51,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-func Input.is_action_just_pressed("dash") and can_dash
-
-
 func _on_coin_3_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
-func jump(multi: float = 3):
+func jump(multi: float = 1):
 	velocity.y = JUMP_VELOCITY * multi
-	
-func dash():
-	velocity *= Dash_multi
-	can_dash = false
-	dash_timer.start()
-
-func on_dash_timer
