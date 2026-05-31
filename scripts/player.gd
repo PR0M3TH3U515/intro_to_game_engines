@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var double_jump: bool = false
 
@@ -26,6 +27,7 @@ func _physics_process(delta):
 			jump()
 		elif double_jump == false:
 			double_jump =true
+			audio_stream_player_2d.play()
 			jump()
 
 	# Get the input direction and handle the movement/deceleration.
