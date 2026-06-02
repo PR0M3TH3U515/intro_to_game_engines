@@ -6,7 +6,7 @@ extends Area2D
 func _on_body_entered(body):
 	print("YOU DIED!?")
 	audio_stream_player_2d.play()
-	Engine.time_scale = 0.5
+	Engine.time_scale = 0.25
 	body.get_node("CollisionShape2D").queue_free()
 	timer.start()
 

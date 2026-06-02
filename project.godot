@@ -24,6 +24,13 @@ buses/default_bus_layout="uid://qb1pdks2ahx4"
 
 Music="*uid://dmsu4bdl28xlu"
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
 [input]
 
 ui_left={
