@@ -6,7 +6,9 @@ const JUMP_VELOCITY = -250.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2
+@onready var slashanim: AnimatedSprite2D = $slashanim
+@onready var animation_player: AnimationPlayer = $slashanim/AnimationPlayer
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -14,6 +16,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var double_jump: bool = false
 
 var can_dash
+
+func _input(event: InputEvent):
+	if event.is_action_pressed("atk1"):
+		slash_atk()
 
 func _physics_process(delta):
 	if is_on_floor() and double_jump == true:
@@ -36,10 +42,8 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
-		animated_sprite_2d_2.flip_h = false
 	elif direction < 0:
 		animated_sprite_2d.flip_h = true
-		animated_sprite_2d_2.flip_h = true
 	
 	if is_on_floor():
 		if direction == 0:
@@ -61,3 +65,11 @@ func _on_coin_3_body_entered(body: Node2D) -> void:
 
 func jump(multi: float = 1):
 	velocity.y = JUMP_VELOCITY * multi
+
+func slash_atk():
+	slashanim.show()
+	slashanim.play("swing")
+	animation_player.play("swing")
+	await animation_player.animation_finished
+	await slashanim.animation_finished
+	slashanim.hide()
