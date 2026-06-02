@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -250.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -35,8 +36,10 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
+		animated_sprite_2d_2.flip_h = false
 	elif direction < 0:
 		animated_sprite_2d.flip_h = true
+		animated_sprite_2d_2.flip_h = true
 	
 	if is_on_floor():
 		if direction == 0:

@@ -370,6 +370,7 @@ texture_filter = 1
 scroll_scale = Vector2(0.6, 0.6)
 repeat_size = Vector2(576, 0)
 autoscroll = Vector2(5, 0)
+repeat_times = 3
 ignore_camera_scroll = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=316080621]
@@ -377,15 +378,15 @@ position = Vector2(-38.000004, -74)
 scale = Vector2(1.9644276, 2.017787)
 texture = ExtResource("1_kvpfn")
 
-[node name="Parallax2D3" type="Parallax2D" parent="Parallax2D" unique_id=340539764]
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=340539764]
 texture_filter = 1
 scroll_scale = Vector2(0.8, 0.8)
 repeat_size = Vector2(576, 0)
 autoscroll = Vector2(2.5, 0)
-repeat_times = 3
+repeat_times = 5
 ignore_camera_scroll = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/Parallax2D3" unique_id=503790919]
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=503790919]
 position = Vector2(22, -142)
 texture = ExtResource("3_kvuet")
 
@@ -393,7 +394,7 @@ texture = ExtResource("3_kvuet")
 scroll_scale = Vector2(0.8, 0.8)
 repeat_size = Vector2(576, 0)
 autoscroll = Vector2(2.5, 0)
-repeat_times = 3
+repeat_times = 5
 ignore_camera_scroll = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=7972704]
@@ -405,7 +406,7 @@ texture_filter = 1
 scroll_scale = Vector2(0.8, 0.8)
 repeat_size = Vector2(576, 0)
 autoscroll = Vector2(2.5, 0)
-repeat_times = 3
+repeat_times = 5
 ignore_camera_scroll = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=871704043]
@@ -427,6 +428,7 @@ offset_top = -8.679993
 offset_right = 50.206116
 offset_bottom = 26.320007
 scale = Vector2(0.51338685, 0.6408947)
+theme_override_colors/font_color = Color(0.23137255, 0.05882353, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("10_vtaks")
 text = "Your score is 0!!!"
 horizontal_alignment = 1
@@ -441,7 +443,7 @@ tile_set = SubResource("TileSet_lbhrr")
 position = Vector2(-167, -12)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=281454816]
-offset = Vector2(50, -30)
+offset = Vector2(92, -30)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
@@ -506,33 +508,7 @@ position = Vector2(360, -7)
 [node name="boost_shroom3" parent="platforms" unique_id=921853526 instance=ExtResource("7_u5sy4")]
 position = Vector2(280, -7)
 
-[node name="ads" type="Node" parent="." unique_id=1214638520]
-
-[node name="slime" parent="ads" unique_id=1968003450 instance=ExtResource("6_p57ef")]
-position = Vector2(-136, -204)
-
-[node name="slime2" parent="ads" unique_id=246088814 instance=ExtResource("6_p57ef")]
-position = Vector2(-56, -204)
-
 [node name="labels" type="Node" parent="." unique_id=988635058]
-
-[node name="Label" type="Label" parent="labels" unique_id=244551874]
-anchors_preset = -1
-anchor_left = -0.17400001
-anchor_top = -0.089
-anchor_right = -0.17400001
-anchor_bottom = -0.089
-offset_left = -64.63999
-offset_top = -70.96
-offset_right = 254.80728
-offset_bottom = 40.04
-scale = Vector2(0.51338685, 0.6408947)
-theme_override_colors/font_color = Color(0.22989264, 0.06004388, 0.009327306, 1)
-theme_override_fonts/font = ExtResource("9_0tnpc")
-text = "Hello, use the \"A\" key to move to the left, 
-and the \"D\" key to move to the right. 
-The space bar lets you jump."
-autowrap_mode = 2
 
 [node name="Label5" type="Label" parent="labels" unique_id=1479137517]
 anchors_preset = -1
@@ -616,3 +592,29 @@ theme_override_colors/font_color = Color(0.23137255, 0.05882353, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("9_0tnpc")
 text = "Use the platform to reach new heights"
 autowrap_mode = 2
+
+[node name="Label" type="Label" parent="labels" unique_id=244551874]
+anchors_preset = -1
+anchor_left = -0.17400001
+anchor_top = -0.089
+anchor_right = -0.17400001
+anchor_bottom = -0.089
+offset_left = -64.63999
+offset_top = -70.96
+offset_right = 254.80728
+offset_bottom = 40.04
+scale = Vector2(0.51338685, 0.6408947)
+theme_override_colors/font_color = Color(0.22989264, 0.06004388, 0.009327306, 1)
+theme_override_fonts/font = ExtResource("9_0tnpc")
+text = "Hello, use the \"A\" key to move to the left, 
+and the \"D\" key to move to the right. 
+The space bar lets you jump."
+autowrap_mode = 2
+
+[node name="ads" type="Node" parent="." unique_id=1214638520]
+
+[node name="slime" parent="ads" unique_id=1968003450 instance=ExtResource("6_p57ef")]
+position = Vector2(-136, -204)
+
+[node name="slime2" parent="ads" unique_id=246088814 instance=ExtResource("6_p57ef")]
+position = Vector2(-56, -204)
