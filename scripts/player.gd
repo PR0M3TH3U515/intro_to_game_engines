@@ -67,9 +67,8 @@ func jump(multi: float = 1):
 	velocity.y = JUMP_VELOCITY * multi
 
 func slash_atk():
+	animation_player.play("swing")
 	slashanim.show()
 	slashanim.play("swing")
-	animation_player.play("swing")
-	await animation_player.animation_finished
 	await slashanim.animation_finished
 	slashanim.hide()
