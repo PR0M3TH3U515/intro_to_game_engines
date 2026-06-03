@@ -66,6 +66,30 @@ func _on_coin_3_body_entered(body: Node2D) -> void:
 func jump(multi: float = 1):
 	velocity.y = JUMP_VELOCITY * multi
 
+#func take_dmg(damage: int, hit_you:Vector2):
+		var hit_direction: Vector2 = hit.pos.direction_to(global_position)
+		boost_amount - hit_direction * 30
+		current_health += damage
+		animation_player.play("take_damage")
+		if current_health <= 0:
+			die()
+			
+#else:
+		
+		Engine.time_scale = 0.7 * damage
+		var tween = get_tree().create_tween()
+		tween.set_ignore_time_scale(true)
+		tween.tween_property(Engine, "time_scale", 1.0, 0.3)
+		
+#func die():
+	if !dting:
+		dying = true
+		Engine.time_scale = 0.3
+		get_node("CollisionShape2D"),queue_free()
+		await get_tree().create_timer(0.5).timeout
+		Engine.time_scale = 1.0
+		get_tree().reload_current_scene()
+
 func slash_atk():
 	animation_player.play("swing")
 	slashanim.show()
